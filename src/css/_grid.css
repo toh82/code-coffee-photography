@@ -1,0 +1,17 @@
+.container {
+  max-width: 60rem;
+}
+
+.grid {
+  .cell {
+    padding: 10px;
+  }
+
+  .cell + .cell {
+    margin-top: 0;
+  }
+}
+
+.container .grid {
+  margin: 0 -1rem;
+}

@@ -1,0 +1,11 @@
+.btn-primary {
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+
+  &:hover,
+  &:active {
+    background-color: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: var(--brand-base);
+  }
+}

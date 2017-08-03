@@ -1,0 +1,26 @@
+.figure {
+  &__image {
+    width: 100%
+  }
+
+  &__caption {
+    margin: 0 2rem;
+    text-align: center;
+  }
+
+  &--break-left {
+    @media (--break-big) {
+      float: left;
+      width: 60%;
+      margin-right: 2rem;
+      margin-bottom: 1rem;
+      margin-left: -10rem;
+    }
+  }
+
+  &--break-both {
+    @media (--break-big) {
+      margin: 1rem -10rem;
+    }
+  }
+}

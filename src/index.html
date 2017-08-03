@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    {{> htmlheader}}
+    <title>Code Coffee and Photography - Blog von Tobias Hartmann</title>
+
+    {{> analytics}}
+  </head>
+  <body class="hack  hack--toh">
+    {{> navigation}}
+
+    <div class="container">
+      <header role="banner">
+        <h1>Code Coffee & Photography</h1>
+        <p>Wie es der Name schon vermuten lässt, geht es um Web-Entwicklung, Kaffee und Photography. Immer mal wieder aber auch um Themen, welche sich super beim Kaffee besprechen lassen.</p>
+      </header>
+    </div>
+
+    <div class="container">
+      <hr>
+      <h3>Stichwort-Filter:</h3>
+      <ul class="tags">
+        {{#tagNavigation './src/posts'}}
+        <li class="tags__item"><a href="/blog.html#{{title}}">{{title}}</a></li>
+        {{/tagNavigation}}
+      </ul>
+    </div>
+
+    <main class="main container">
+      <div class="grid">
+        {{#articleList blog.post.baseFolder blog.post.folder}}
+          <div class="cell  -4of12">{{> articleCard}}</div>
+        {{/articleList}}
+      </div>
+    </main>
+
+    <div class="container">
+      <hr>
+      <h2>This blog is build with hbs-blog</h2>
+      <p><a target="_blank" href="https://www.npmjs.com/package/hbs-blog">hbs-blog</a> is an open source npm module. It uses handlebarsjs, front-matters and gulp to create a static blog. If you want to contribute, check out the <a target="_blank" href="https://github.com/toh82/hbs-blog">github page of hbs-blog</a>.</p>
+
+      <p>If you enjoy what I'm doing I would appreciate if you ...</p>
+      <ul>
+        <li>support me on <a target="_blank" href="https://www.patreon.com/thartmann">patreon</a></li>
+        <li>support me on <a target="_blank" href="https://flattr.com/profile/toh82">flattr</a></li>
+        <li>buy me a beer or coffee if we meet</li>
+        <li>give feedback</li>
+      </ul>
+    </div>
+
+    {{> footer}}
+  </body>
+</html>

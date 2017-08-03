@@ -1,0 +1,130 @@
+---
+headline: Ein Gulp Modul zu schreiben ist eigentlich gar nicht so schwer.
+subline: Ein Einstieg in die Entwicklung von Gulp Modulen
+tags: gulp,node,handlebarsjs,code,javascript,js
+author: Tobias Hartmann
+date: 2017-07-31
+lang: de
+---
+
+{{#> blogArticle}}<p id="intro-text" class="intro">Durch die Komplexität mir bekannter Gulp Module, habe ich mich lange Zeit davon abschrecken lassen, selbst eines zu entwickeln. Doch es war einfacher als gedacht. Alles was ich wirklich benötigte, war ein Plan und eine Vorstellung davon, was dieses Modul machen soll und wie.</p>
+
+**Konkret:** Ich wollte Daten aus einer Handlebarsjs Datei entnehmen, um diese im späteren Verlauf, mit HandlebarsJS Variablen, an verschiedenen Stellen im Dokument zu Nutzen. Liest sich vielleicht nicht so trivial, wenn es im Gesamtbild betrachtet wird, aufgeschlüsselt ist es aber recht einfach.
+
+**Ein Gulp Prozess** wird mit `gulp.src('./src/*.html')` gestartet und z.B. mit `.pipe(gulp.dest([destinationFolder]))` beendet. Es werden also alle HTML-Dateien, die sich in dem entsprechenden Ordner befinden, in den Prozess gekippt. Diese laufen dann durch verschiedenen Pipes. **Vereinfacht gesagt sind Pipes Interfaces, durch welche die aktiven Daten in einem Prozess manipuliert werden können**. Das Wort Pipe macht hier mega viel Sinn, weil es sich in der Tat wie eine Leitung verhält, durch welche die Daten transportiert werden. Jede Pipe symbolisiert dabei ein Teilstück in der Leitung. Pipes sind jedoch kein Teil der Gulp Api, sondern ein Teil des Node.js Streams.
+
+Um den Prozess um eine weitere Schnittstelle zu erweitern, wird also einfach ein weiteres Leitungsstück mit `.pipe()` hinzugefügt. Um der Pipe eine Funktion zu geben, genügt es diese als Parameter in die Pipe zu schreiben `.pipe(function () {})`.
+
+Nun zu der Funktion, hier arbeite ich mit dem Modul [**through2**](https://github.com/rvagg/through2).
+**through2 ist ein Wrapper für Node Streams**, der einem, gerade als Beginner, das Leben deutlich erleichtert. Ich kann an dieser Stelle noch nicht viel mehr Informationen über Node Streams liefern, weil ich auch erst mit diesem Post angefangen habe mich damit näher zu beschäftigen. Wenn du dich etwas tiefer einlesen willst, empfehle ich dir diese Artikel:
+- [Why I don't use Node's core 'stream' module](https://r.va.gg/2014/06/why-i-dont-use-nodes-core-stream-module.html)
+- [stream-handbook](https://github.com/substack/stream-handbook)
+
+**Der Object-Stream** von through2 gibt mir als ersten Parameter ein File-Object. **Hierbei handelt es sich um ein Vinyl-Object**, ein virtuelles Format um zum Beispiel eine Datei zu beschreiben. Natürlich kam die Erkenntnis erst hinterher, daher habe ich mir die Properties des Objektes mühevoll im Internet zusammengesucht. Mir fehlte das Stichwort Vinyl-Object. Mehr darüber und was dieses Objekt enthält, findest du im [Vinyl npm Package](https://www.npmjs.com/package/vinyl).
+
+Für den genannten Zweck benötige ich die Property `file.content`, welche den Inhalt der Ursprungsdatei enthält und die Property `file.relative`, die den relativen Dateipfad enthält.
+Um nun den relativen Pfad der aktuellen Datei in die Data-Property des Vinyl-Objects zu schreiben, würde die Funktion wie folgt aussehen:
+
+```
+function loadDocumentData () {
+    return Through.obj(function (file, enc, Callback) {
+        if (!file.data) {
+            file['data'] = {}
+        }
+        Object.assign(
+            file['data'],
+            {relativePath: file.relative}
+        )
+        Callback(null, file)
+    })
+}
+```
+
+Bei der **Data-Property** handelt es sich um Informationen, welche dem Vinly-Object, bei ihrem Weg durch die Leitung angeheftet werden. Die Property wird von einigen Gulp Modulen genutzt, vorallem [Gulp-Data](https://www.npmjs.com/package/gulp-data). Wichtig ist daher, dass mit dem Callback das File-Objekt zurückgegeben wird, ansonsten haben nachfolgende Leitungsstücke keine Daten.
+
+**In HandlebarsJS werden zum Beispiel Informationen aus der Data-Property als globale Variablen/Placeholder nutzbar gemacht**. In meinem Anwendungsfall, mit der nachgeschalteten HandlebarsJS Funktion, kann ich demnach den relativen Pfad mit dem Placeholder `{{relative}}` in das Dokument schreiben.
+
+Sollte also eure Pipe-Funktion Daten mitgeben oder lesen und ändern wollen, empfiehlt es sich immer in diese Property zu schauen, sie aber bitte nicht zu löschen oder zu überschreiben. Wenn ihr sie Erweitern wollt geht dies am besten mit [Object assign](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+
+```
+if (!file.data) {
+    file['data'] = {}
+}
+Object.assign(
+    file['data'],
+    {neue Daten}
+)
+```
+
+Damit sind wir mit der Gulp Funktion fertig, der eigentliche Gulp Task würde nun wie folgt aussehen:
+
+```
+gulp.task('html', function () {
+    var hbs = require('gulp-compile-handlebars')
+    var Through = require('through2')
+
+    return gulp.src('src/*.html')
+       .pipe(function () {
+            return Through.obj(function (file, enc, Callback) {
+                if (!file.data) {
+                    file['data'] = {}
+                }
+                Object.assign(
+                    file['data'],
+                    {relativePath: file.relative}
+                )
+                Callback(null, file)
+            })
+       })
+       .pipe(hbs())
+       .pipe(gulp.dest('web'))
+})
+```
+
+Natürlich wollen wir nicht alle Funktionen, die den Pipes mitgegeben werden, im Gulp File speichern. Wenn es mehrere sind wird das schnell unübersichtlich. Ich nehme daher die Funktion wieder aus dem File raus und erstelle mir eine eigene Datei, welche ich in dem Ordner `src/js/gulp/` ablege. Um die Funktion zu Modularisieren und diese später mit `require()` zu laden, benötigen wir aber noch ein wenig mehr Code. Alles zusammen sieht dann so aus:
+
+```
+module.exports = loadDocumentData
+
+var Through = require('through2')
+
+/**
+* @returns {object}
+*/
+function loadDocumentData () {
+    return Through.obj(function (file, enc, cb) {
+        if (!file.data) {
+            file['data'] = {}
+        }
+        Object.assign(
+            file['data'],
+            {relativePath: file.relative}
+        )
+        cb(null, file)
+    })
+}
+```
+
+Jetzt kann der Gulp Task umgebaut werden:
+
+```
+gulp.task('html', function () {
+    var hbs = require('gulp-compile-handlebars')
+    var loadDocumentData = require('./src/js/gulp/documentData’)
+
+    return gulp.src('src/*.html')
+        .pipe(loadDocumentData)
+        .pipe(hbs())
+        .pipe(gulp.dest('web'))
+})
+```
+
+Weiteres über Modulares JavaScript findet ihr übrigens hier:
+- [JavaScript Modules: A Beginner’s Guide](https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc)
+- [eloquent JavaScript - Chapter 10 Modules](http://eloquentjavascript.net/10_modules.html)
+
+Das Modul habe ich übrigens für diesen Blog geschrieben. Es hilft mir, unter Anderem, bei der Erzeugung der Artikel-Liste. Schaut doch mal im dazugehörigen GitHub Repository vorbei: [hbs-blog auf GitHub](https://github.com/toh82/hbs-blog)
+
+Ich hoffe diese Beschreibung hat euch etwas geholfen.
+Wenn irgendwas nicht korrekt beschrieben ist oder einfacher/besser zu realisieren ist, lasst es mich bitte wissen.
+{{/blogArticle}}

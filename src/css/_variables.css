@@ -1,0 +1,10 @@
+:root {
+    --brand-base: #f5f5f5;
+    --brand-primary: #00b38d;
+    --brand-secondary: #313b3c;
+}
+
+@custom-media --break-small (min-width: 480px);
+@custom-media --break-medium (min-width: 768px);
+@custom-media --break-big (min-width: 992px);
+@custom-media --break-huge (min-width: 1200px);

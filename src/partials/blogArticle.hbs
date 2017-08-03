@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+  <head itemscope itemtype="http://schema.org/WebSite">
+    {{> htmlheader}}
+    <meta name="author" content="{{author}}">
+    <title itemprop='name'>{{site.header.title_prefix}} - {{headline}} {{#if subline}}{{subline}}{{/if}}</title>
+
+    {{> analytics}}
+  </head>
+  <body class="hack  hack--toh">
+    {{> navigation}}
+    <main class="main container" itemscope itemtype="http://schema.org/Article">
+      <header>
+        <h1 itemprop="headline">{{headline}} {{#if subline}}<span class="subline">{{subline}}</span>{{/if}}</h1>
+        <div class="author-image">
+          <img class="image  image--round  image--small" src="{{site.url.static}}assets/media/me.jpg" alt="Picture of Tobias Hartmann">
+        </div>
+        <p class="author">von <span itemprop="author" >{{author}}</span></p>
+        <time datetime="{{formatTime date "YYYY-MM-DD"}}">{{formatTime date "DD.MM.YYYY"}}</time>
+          <meta itemprop="datePublished" content="{{formatTime date "YYYY-MM-DD"}}"><br>
+          {{> shareOnTwitter
+            path=relativePath
+            text=headline
+            author=twitter }}
+
+      </header>
+      {{#markdown}}{{> @partial-block }}{{/markdown}}
+    </main>
+    <div class="container">
+      {{> flattr}}
+      <ul class="tags" itemprop="keywords">
+        {{#formatTags tags}}
+        <li class="tags__item">{{tag}}</li>
+        {{/formatTags}}
+      </ul>
+
+        <p>If you enjoy what I'm doing I would appreciate if you ...</p>
+        <ul>
+            <li>support me on <a target="_blank" href="https://www.patreon.com/thartmann">patreon</a></li>
+            <li>support me on <a target="_blank" href="https://flattr.com/profile/toh82">flattr</a></li>
+            <li>buy me a beer or coffee if we meet</li>
+            <li>give feedback</li>
+        </ul>
+    </div>
+    {{> footer}}
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "site": {
+    "url": {
+      "base": "/",
+      "static": "/"
+    },
+    "google_analytics": {
+      "active": false,
+      "id": ""
+    },
+    "header": {
+      "title_prefix": "toh82",
+      "keywords": "webdevelopment, fotografie, photography, programmierung, javascript, kaffee, coffee"
+    }
+  },
+  "blog": {
+    "post": {
+      "baseFolder": "./src/",
+      "folder": "posts/"
+    }
+  },
+  "author": "Tobias Hartmann",
+  "twitter": "@ToH_82"
+}

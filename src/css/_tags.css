@@ -1,0 +1,17 @@
+.tags {
+  list-style: none;
+  margin: 1.5rem -0.5rem 1.5rem -0.5rem;
+  padding: 0;
+  position: relative;
+  display: block;
+
+  &__item {
+    position: relative;
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.8rem 1.2rem;
+    list-style: none;
+    background: var(--brand-base);
+    font-weight: bold;
+  }
+}

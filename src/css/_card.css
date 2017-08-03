@@ -1,0 +1,18 @@
+.card {
+  &-header {
+    background: var(--brand-base);
+    padding: 1rem;
+    text-align: left;
+
+    h2:before {
+      display: none;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+  .inner p {
+    margin-top: 0;
+  }
+}
