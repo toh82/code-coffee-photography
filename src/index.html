@@ -27,8 +27,13 @@
     </div>
 
     <main class="main container">
+      <div class="sticky">
+        {{#articleSticky blog.post.baseFolder blog.post.folder}}
+          {{> articleCard}}
+        {{/articleSticky}}
+      </div>
       <div class="grid">
-        {{#articleList blog.post.baseFolder blog.post.folder}}
+        {{#articleList blog.post.baseFolder blog.post.folder false}}
           <div class="cell  -4of12">{{> articleCard}}</div>
         {{/articleList}}
       </div>
