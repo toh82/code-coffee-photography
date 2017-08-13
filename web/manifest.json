@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Code, Coffee & Photography",
+  "description": "A blog from Tobias Hartmann about and around the topics code, coffee and photography",
+  "version": "1.0.0",
+  "short_name": "code-coffee-photography",
+  "author": "Tobias Hartmann",
+  "lang": "de-DE",
+  "start_url": "/",
+  "display": "fullscreen",
+  "theme_color": "#404c4d",
+  "background_color": "#404c4d",
+  "related_applications": [{
+    "platform": "web",
+    "url": "https://code-coffee-photography.blog/"
+  }]
+}
