@@ -1,7 +1,7 @@
 {
-  "name": "toh82",
+  "name": "Code-Coffee-and-Photography",
   "version": "1.0.0",
-  "description": "Personal website of Tobias Hartmann",
+  "description": "Personal blog of Tobias Hartmann",
   "author": "Tobias Hartmann<hartmann.tobias@gmail.com>",
   "scripts": {
     "test": "standard"
@@ -9,7 +9,6 @@
   "devDependencies": {
     "hbs-blog": "^1.2.1",
     "autoprefixer": "^6.6.1",
-    "cheerio": "^0.22.0",
     "cssnano": "^3.10.0",
     "front-matter": "^2.1.2",
     "gulp": "^3.9.1",
@@ -18,14 +17,11 @@
     "gulp-postcss": "^6.2.0",
     "gulp-sourcemaps": "^2.4.0",
     "gulp-uglify": "^2.0.1",
-    "hack": "^0.7.7",
     "handlebars": "^4.0.6",
     "normalize-css": "^2.3.1",
     "postcss-import": "^9.1.0",
     "precss": "^1.4.0",
-    "remarkable": "^1.7.1",
     "standard": "^8.6.0",
-    "through2": "^2.0.3",
     "underscore": "^1.8.3",
     "zepto": "^1.2.0"
   }

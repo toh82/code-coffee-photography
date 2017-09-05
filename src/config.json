@@ -1,8 +1,8 @@
 {
   "site": {
     "url": {
-      "base": "",
-      "static": ""
+      "base": "/",
+      "static": "/"
     },
     "google_analytics": {
       "active": false,

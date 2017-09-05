@@ -1,0 +1,11 @@
+<article itemscope itemtype="http://schema.org/Article" data-tags="{{tags}}">
+  <header class="article-head">
+    <h3 class="article-head__headline"><a href="{{link}}" itemprop="headline">{{headline}} {{#if subline}}{{subline}}{{/if}}</a></h3>
+    <p class="article-head__info  text--inline"><small>{{lang}} . {{formatTime date "DD.MM.YYYY"}} . <span itemprop="author">{{author}}</span></small></p>
+    <meta itemprop="datePublished" content="{{formatTime date "YYYY-MM-DD"}}">
+  </header>
+  <div class="ce__body">
+    <p>{{intro}}</p>
+    <a href="{{link}}" itemprop="url" class="button  button--primary" title="Artikel '{{headline}}' öffnen">Artikel öffnen</a>
+  </div>
+</article>

@@ -1,7 +1,12 @@
 :root {
-    --brand-base: #f5f5f5;
-    --brand-primary: #00b38d;
-    --brand-secondary: #313b3c;
+    --color__base: #f4f3f1;
+    --color__primary: #2c1c0a;
+    --color__brand: #00b38d;
+    --color__brand--dark: #058166;
+
+    --font__weight--bold: 700;
+    --font__weight--regular: 400;
+    --font__weight--light: 300;
 }
 
 @custom-media --break-small (min-width: 480px);

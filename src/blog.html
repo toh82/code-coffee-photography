@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    {{> htmlheader}}
+    <title>Code Coffee and Photography - Blog von Tobias Hartmann</title>
+
+    {{> analytics}}
+  </head>
+  <body class="ccp">
+    {{> navigation}}
+
+    <header class="header  container" role="banner">
+      <div class="header__content">
+        <h1>Alle Artikel:</h1>
+      </div>
+    </header>
+
+    <div class="container">
+      <h2>Stichwort-Filter:</h2>
+      <ul class="tags">
+        {{#tagNavigation './src/posts'}}
+        <li class="tags__item"><a href="/blog.html#{{title}}">{{title}}</a></li>
+        {{/tagNavigation}}
+      </ul>
+    </div>
+
+    <main class="container  article-list">
+      <ul class="grid  grid--2">
+        {{#articleList blog.post.baseFolder blog.post.folder false}}
+          <li class="grid__item">{{> articleCard}}</li>
+        {{/articleList}}
+      </ul>
+    </main>
+
+    {{> footer}}
+  </body>
+</html>

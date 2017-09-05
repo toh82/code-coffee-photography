@@ -1,11 +1,28 @@
-.btn-primary {
-  color: var(--brand-primary);
-  border-color: var(--brand-primary);
+.button {
+    display: inline-flex;
+    box-align: center;
+    box-pack: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: inherit;
+    color: inherit;
+    user-select: none;
+    position: relative;
+    outline: none;
+    padding: 0.60rem 1.5rem;
+    background-color: transparent;
+    border-width: 2px;
+    border-style: solid;
 
-  &:hover,
-  &:active {
-    background-color: var(--brand-primary);
-    border-color: var(--brand-primary);
-    color: var(--brand-base);
-  }
+    &--primary {
+        color: var(--color__primary);
+        border-color: var(--color__primary);
+
+        &:hover {
+            color: var(--color__base);
+            background-color: var(--color__primary);
+            border-color: var(--color__primary);
+        }
+    }
 }

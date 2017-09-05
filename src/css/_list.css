@@ -1,0 +1,38 @@
+.list {
+    padding: 0;
+
+    &--unstyled {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+
+        .list__item {
+            padding-left: 0;
+        }
+        .list__item:after {
+            content: '';
+        }
+    }
+
+    &--inline {
+         display: inline-block;
+
+        .list__item {
+            display: inline-block;
+        }
+    }
+
+    &__item {
+         margin-top: 0.6rem;
+         position: relative;
+         display: block;
+         padding-left: 20px;
+
+        &:after {
+             content: "-";
+             position: absolute;
+             top: 0;
+             left: 0;
+        }
+    }
+}

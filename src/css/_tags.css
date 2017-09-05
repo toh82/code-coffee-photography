@@ -1,17 +1,24 @@
-.tags {
-  list-style: none;
-  margin: 1.5rem -0.5rem 1.5rem -0.5rem;
-  padding: 0;
-  position: relative;
-  display: block;
 
-  &__item {
-    position: relative;
+.tag {
     display: inline-block;
-    margin: 0.5rem;
-    padding: 0.8rem 1.2rem;
+    margin: 0;
+    padding: 0.4rem 1rem;
+    background: #fff;
+}
+
+.tags {
     list-style: none;
-    background: var(--brand-base);
-    font-weight: bold;
-  }
+    margin: 1.5rem -0.5rem 1.5rem -0.5rem;
+    padding: 0;
+    position: relative;
+    display: block;
+
+    &__item {
+        list-style: none;
+        position: relative;
+        display: inline-block;
+        margin: 0.5rem;
+        padding: 0.4rem 1rem;
+        background: #fff;
+    }
 }

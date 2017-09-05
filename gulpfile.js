@@ -63,5 +63,5 @@ gulp.task('css', function () {
 
 gulp.task('default', ['hbs', 'css', 'js'])
 gulp.task('watch', function () {
-  return gulp.watch('./src/*', ['hbs', 'css', 'js'])
+  return gulp.watch('./src/**/*', ['hbs', 'css', 'js'])
 })
