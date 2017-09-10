@@ -38,6 +38,18 @@
 
       {{> flattr}}
     </div>
+
+    {{#if activatedisqus}}
+    <div class="container">{{> disqus path=relativePath}}</div>
+    {{/if}}
+
     {{> footer}}
+
+    {{#if codehighlighting}}
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    {{/if}}
   </body>
 </html>

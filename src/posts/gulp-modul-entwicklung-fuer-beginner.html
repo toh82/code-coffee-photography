@@ -5,6 +5,9 @@ tags: gulp,node,handlebarsjs,code,javascript,js
 author: Tobias Hartmann
 date: 2017-07-31
 lang: de
+
+codehighlighting: true
+activatedisqus: true
 ---
 
 {{#> blogArticle}}<p id="intro-text" class="intro">Durch die Komplexität mir bekannter Gulp Module, habe ich mich lange Zeit davon abschrecken lassen, selbst eines zu entwickeln. Doch es war einfacher als gedacht. Alles was ich wirklich benötigte, war ein Plan und eine Vorstellung davon, was dieses Modul machen soll und wie.</p>
@@ -25,7 +28,7 @@ Nun zu der Funktion, hier arbeite ich mit dem Modul [**through2**](https://githu
 Für den genannten Zweck benötige ich die Property `file.content`, welche den Inhalt der Ursprungsdatei enthält und die Property `file.relative`, die den relativen Dateipfad enthält.
 Um nun den relativen Pfad der aktuellen Datei in die Data-Property des Vinyl-Objects zu schreiben, würde die Funktion wie folgt aussehen:
 
-```
+```JS
 function loadDocumentData () {
     return Through.obj(function (file, enc, Callback) {
         if (!file.data) {
@@ -46,7 +49,7 @@ Bei der **Data-Property** handelt es sich um Informationen, welche dem Vinly-Obj
 
 Sollte also eure Pipe-Funktion Daten mitgeben oder lesen und ändern wollen, empfiehlt es sich immer in diese Property zu schauen, sie aber bitte nicht zu löschen oder zu überschreiben. Wenn ihr sie Erweitern wollt geht dies am besten mit [Object assign](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
 
-```
+```JS
 if (!file.data) {
     file['data'] = {}
 }
@@ -58,7 +61,7 @@ Object.assign(
 
 Damit sind wir mit der Gulp Funktion fertig, der eigentliche Gulp Task würde nun wie folgt aussehen:
 
-```
+```JS
 gulp.task('html', function () {
     var hbs = require('gulp-compile-handlebars')
     var Through = require('through2')
@@ -83,7 +86,7 @@ gulp.task('html', function () {
 
 Natürlich wollen wir nicht alle Funktionen, die den Pipes mitgegeben werden, im Gulp File speichern. Wenn es mehrere sind wird das schnell unübersichtlich. Ich nehme daher die Funktion wieder aus dem File raus und erstelle mir eine eigene Datei, welche ich in dem Ordner `src/js/gulp/` ablege. Um die Funktion zu Modularisieren und diese später mit `require()` zu laden, benötigen wir aber noch ein wenig mehr Code. Alles zusammen sieht dann so aus:
 
-```
+```JS
 module.exports = loadDocumentData
 
 var Through = require('through2')
@@ -107,7 +110,7 @@ function loadDocumentData () {
 
 Jetzt kann der Gulp Task umgebaut werden:
 
-```
+```JS
 gulp.task('html', function () {
     var hbs = require('gulp-compile-handlebars')
     var loadDocumentData = require('./src/js/gulp/documentData’)

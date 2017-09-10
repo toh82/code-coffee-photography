@@ -11,12 +11,13 @@
 
     <header class="header  container" role="banner">
       <div class="header__content">
-        <h1>Alle Artikel:</h1>
+        <h1>Alle Posts:</h1>
       </div>
     </header>
 
     <div class="container">
-      <h2>Stichwort-Filter:</h2>
+      <h3>Stichwort-Filter:</h3>
+      <p>Mit Klick auf einen der Begriffe, werden in der Artikel liste, passende Artikel hervorgehoben.</p>
       <ul class="tags">
         {{#tagNavigation './src/posts'}}
         <li class="tags__item"><a href="/blog.html#{{title}}">{{title}}</a></li>
@@ -27,7 +28,7 @@
     <main class="container  article-list">
       <ul class="grid  grid--2">
         {{#articleList blog.post.baseFolder blog.post.folder false}}
-          <li class="grid__item">{{> articleCard}}</li>
+        <li class="grid__item">{{> articlePreviewMedium}}</li>
         {{/articleList}}
       </ul>
     </main>

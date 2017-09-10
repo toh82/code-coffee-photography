@@ -1,6 +1,7 @@
 :root {
     --color__base: #f4f3f1;
     --color__primary: #2c1c0a;
+    --color__primary--light: #d0d0d0;
     --color__brand: #00b38d;
     --color__brand--dark: #058166;
 

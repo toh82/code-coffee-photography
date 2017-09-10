@@ -1,8 +1,8 @@
 {
   "site": {
     "url": {
-      "base": "/",
-      "static": "/"
+      "base": "https://ccp.local/",
+      "static": "https://ccp.local/"
     },
     "google_analytics": {
       "active": false,

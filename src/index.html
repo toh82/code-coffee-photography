@@ -6,7 +6,7 @@
 
     {{> analytics}}
   </head>
-  <body class="ccp">
+  <body class="ccp  ccp--home">
     {{> navigation}}
 
     <header class="header  container" role="banner">
@@ -39,7 +39,7 @@
       </div>
 
       <div class="container  article-list">
-        <h2>Neueste Artikel:</h2>
+        <h2>Bisherige Posts:</h2>
         <ul class="grid  grid--2">
           {{#articleList blog.post.baseFolder blog.post.folder false}}
           <li class="grid__item">{{> articlePreviewSmall}}</li>
