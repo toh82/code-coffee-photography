@@ -281,6 +281,7 @@ pre {
 
     .article-meta {
         display: grid;
+        align-items: center;
         grid-column-gap: calc(0.5rem + 2.1vw);
         grid-template-columns: calc(3rem + 2.1vw) auto;
     }

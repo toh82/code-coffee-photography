@@ -14,13 +14,13 @@
       width: 60%;
       margin-right: 2rem;
       margin-bottom: 1rem;
-      margin-left: -10rem;
+      margin-left: -4rem;
     }
   }
 
   &--break-both {
     @media (--break-big) {
-      margin: 1rem -10rem;
+      margin: 1rem -4rem;
     }
   }
 }
