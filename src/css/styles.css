@@ -325,6 +325,21 @@ pre {
     }
 }
 
+.logo {
+    margin-bottom: 0.75rem;
+
+    &__image {
+        width: 6rem;
+    }
+
+    &__text {
+        display:none;
+        @media (--break-medium) {
+            display:block;
+        }
+    }
+}
+
 .ccp--article {
     ul {
         padding: 0;
