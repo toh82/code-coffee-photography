@@ -25,4 +25,9 @@
             border-color: var(--color__primary);
         }
     }
+
+    &--transparent {
+        background-color: transparent;
+        border-color: transparent;
+    }
 }

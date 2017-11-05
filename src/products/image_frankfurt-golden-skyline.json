@@ -1,0 +1,12 @@
+{
+    "id": "image_frankfurt-golden-skyline",
+    "type": "digital",
+    "tags": ["Bild"],
+    "name": "Golden Skyline FFM",
+    "description": "High Res Bildserie, rund um die Commerzbank in Frankfurt, als .jpg Dateien",
+    "price": "4000",
+    "image": {
+        "base": "",
+        "thumb": ""
+    }
+}

@@ -2,4 +2,7 @@ node_modules
 
 web/assets/js
 web/assets/css
-web/**/*.html
+web/*.html
+web/posts/*.html
+
+shop

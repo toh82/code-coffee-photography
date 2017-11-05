@@ -1,0 +1,12 @@
+{
+    "id": "preset_goldfade-greenpop",
+    "type": "digital",
+    "tags": ["Preset"],
+    "name": "Goldfade-Greenpop",
+    "description": "Goldfade-Greenpop Adobe Lightroom Preset",
+    "price": "600",
+    "image": {
+        "base": "",
+        "thumb": ""
+    }
+}

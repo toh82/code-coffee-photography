@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    {{> htmlheader}}
+    <title>Shop - Code Coffee and Photography - Blog von Tobias Hartmann</title>
+
+    {{> analytics}}
+  </head>
+  <body class="ccp">
+    {{> navigation}}
+
+    <header class="header  container" role="banner">
+      <h1>Shop</h1>
+      <p>Du brauchst ein neues Lightroom Preset oder willst neue Bilder, dann bist du hier richtig.<br>Das geniale ist, für Dich ist alles günstig zu erwerben und mich unterstützt es <i class="fa fa-heart" aria-hidden="true"></i></p>
+    </header>
+
+    <main>
+      <div class="container  article-list  article-list--sticky">
+        <ul class="list  list--unstyled  js-message-list"></ul>
+        <ul class="list  list--unstyled  grid  grid--3">
+          {{#shopList './src/products'}}
+          <li class="list__item  grid__item  grid__item--1">
+              {{> stripe/list/product}}
+          </li>
+          {{/shopList}}
+        </ul>
+
+        <p><i class="fa fa-info-circle" aria-hidden="true"></i> Hier gibt es nur digitale Produkte, wenn du ein Produkt kaufst, wird es innerhalb von 48 Stunden an deine E-Mail Adresse gesendet.</p>
+      </div>
+    </main>
+
+    {{> footer}}
+
+    <template id="shop-message">
+        <li class="list__item  js-closeable">
+            <div class="message">
+                <button class="button  button--transparent  message__close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <span class="text"></span>
+            </div>
+        </li>
+    </template>
+
+    <div class="js-loading-animation  loading-animation  hide">
+        <div class="loading-animation__content">
+            <i class="fa  fa-refresh  fa-spin  fa-3x fa-fw"></i>
+            <p><b>Einen Moment, ihre Anfrage wird bearbeitet.</b></p>
+        </div>
+    </div>
+
+    <script src="{{site.url.static}}assets/js/deferred.js"></script>
+    <script src="{{site.url.static}}assets/js/callbacks.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script data-main="{{site.url.static}}assets/js/shop" src="{{site.url.static}}assets/lib/require.js"></script>
+  </body>
+</html>
