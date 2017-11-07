@@ -1,7 +1,7 @@
 <?php
 
 // TODO consider using silex and composer
-require_once('config.php');
+require_once('../../shop/config.php');
 require_once('products.php');
 require_once('shopMail.php');
 
@@ -51,7 +51,7 @@ try {
     $charge = \Stripe\Charge::create([
         'source'               => $_POST['token'], // this has to be the token id only
         'amount'               => $product['price'],
-        'statement_descriptor' => $product['id'], // statement_descriptor only takes 22 chars
+        'statement_descriptor' => substr($product['id'], 0, 21), // statement_descriptor only takes 22 chars
         'currency'             => 'eur',
     ]);
 

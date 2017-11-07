@@ -5,4 +5,4 @@ web/assets/css
 web/*.html
 web/posts/*.html
 
-shop
+shop/products.json
