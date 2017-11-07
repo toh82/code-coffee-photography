@@ -40,7 +40,7 @@ $products->sync();
 if (!$products->isExistingProduct($item['id'])) {
     returnJsonAndExit([
         'status'  => 'error',
-        'message' => 'Charge did not happen, either the product does not exist or the price is not valid',
+        'message' => 'Bezahlung wurde nicht ausgeführt, entweder exisitert das Produkt nicht oder der Preis ist nicht korrekt.',
     ]);
 }
 
@@ -75,12 +75,12 @@ try {
 
         returnJsonAndExit([
             'status'  => 'success',
-            'message' => 'charge will be created',
+            'message' => 'Danke das du was gekauft hast! Ich werde mich innerhalb von 48 Stunden darum kümmern.',
         ]);
     }
 } catch (Exception $error) {
     returnJsonAndExit([
         'status'  => 'error',
-        'message' => 'Charge did not happen: ' . $error->getMessage(),
+        'message' => 'Bezahlung wurde nicht ausgeführt: ' . $error->getMessage(),
     ]);
 }
