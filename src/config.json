@@ -1,11 +1,11 @@
 {
   "site": {
     "url": {
-      "base": "https://ccp.local/",
-      "static": "https://ccp.local/"
+      "base": "https://www.code-coffee-photography.blog/",
+      "static": "https://www.code-coffee-photography.blog/"
     },
     "google_analytics": {
-      "active": false,
+      "active": true,
       "id": "UA-61312162-3"
     },
     "header": {
@@ -18,11 +18,6 @@
       "baseFolder": "./src/",
       "folder": "posts/"
     }
-  },
-  "stripe": {
-    "key": "",
-    "image": "https://stripe.com/img/documentation/checkout/marketplace.png",
-    "active": false
   },
   "author": "Tobias Hartmann",
   "twitter": "@ToH_82"
