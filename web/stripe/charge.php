@@ -16,6 +16,35 @@ function returnJsonAndExit(array $return)
     exit;
 }
 
+/**
+ * @param string        $subject
+ * @param string        $from
+ * @param string        $to
+ * @param string        $address
+ * @param stripe\Charge $charge
+ * @param array         $product
+ * @param string        $template
+ */
+function sendMail($subject, $from, $to, $address, array $charge, stripe\Charge $product, $template)
+{
+    /** @var ShopMail $mail */
+    $mail = new ShopMail('html', $template);
+    $mail->setFrom($from);
+    $mail->setTo($to);
+    $mail->setSubject($subject);
+    $mail->setBody([
+        'title'                   => $subject,
+        'productID'               => $product['id'],
+        'stripeChargeEmail'       => $charge['email'],
+        'stripeChargeId'          => $charge['id'],
+        'stripeChargeAmount'      => $charge['amount'],
+        'stripeChargeCreatedDate' => $charge['created'],
+        'footer'                  => $address,
+        'from'                    => $from,
+    ]);
+    $mail->send();
+}
+
 /** @var array $return */
 $return = [];
 
@@ -56,22 +85,31 @@ try {
     ]);
 
     if ($charge['status'] === 'succeeded') {
-        /** @var ShopMail $mail */
-        $mail = new ShopMail('html', 'mail.html');
-        $mail->setFrom('hartmann.tobias@gmail.com');
-        $mail->setTo('hartmann.tobias@gmail.com');
-        $mail->setSubject('TODO code coffee photography Shop Bestellung - ' . $product['id']);
-        $mail->setBody([
-            'title'                   => 'Bestellung auf Code Coffee and Photography',
-            'productID'               => $product['id'],
-            'stripeTokenEmail'        => $token['email'],
-            'stripeChargeId'          => $charge['id'],
-            'stripeChargeAmount'      => $charge['amount'],
-            'stripeChargeCreatedDate' => $charge['created'],
-            'footer'                  => 'Code Coffee and Photography<br>Tobias Hartmann . Castellring 103 . 61130 Nidderau',
-            'from'                    => 'hartmann.tobias@gmail.com',
-        ]);
-        $mail->send();
+        $subject = 'Bestellung auf Code, Coffee & Photography - ' . $product['id'];
+        $from    = 'order@code-coffee-photography.blog';
+        $address = 'Code Coffee and Photography<br>Tobias Hartmann . Castellring 103 . 61130 Nidderau';
+
+        // Admin Mail
+        sendMail(
+            'TODO - ' . $subject,
+            $from,
+            'hartmann.tobias@gmail.com',
+            $address,
+            $charge,
+            $product,
+            'mail.html'
+        );
+
+        // Customer Mail
+        sendMail(
+            $subject,
+            $from,
+            $charge['email'],
+            $address,
+            $charge,
+            $product,
+            'customerMail.html'
+        );
 
         returnJsonAndExit([
             'status'  => 'success',
