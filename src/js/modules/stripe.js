@@ -2,7 +2,7 @@ define(['modules/message'], function (Message) {
   'use strict'
 
   return function () {
-    var checkoutHandler  = null
+    var checkoutHandler = null
     var loadingAnimation = $('.js-loading-animation')
 
     /**
@@ -86,7 +86,7 @@ define(['modules/message'], function (Message) {
       })
 
       checkoutHandler = StripeCheckout.configure({
-        key: 'pk_test_vEmW2LzGut2JyaPqwEo8cp2v',
+        key: 'pk_live_K1wvvzuIoSC8QLlqwC0vmDxy',
         image: 'assets/ccp-shop-icon.png',
         currency: 'eur',
         billingAddress: false,

@@ -4,6 +4,7 @@
     "tags": ["Bild"],
     "name": "Golden Skyline FFM",
     "description": "High Res Bildserie, rund um die Commerzbank in Frankfurt, als .jpg Dateien",
+    "license": "CC2.0",
     "price": "4000",
     "image": {
         "base": "",

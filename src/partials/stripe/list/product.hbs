@@ -6,6 +6,7 @@
     </div>
     {{/if}}
     <p itemprop="description">{{description}}</p>
+    {{#if license}}<p>{{license}}</p>{{/if}}
     <div itemscope itemtype="http://schema.org/AggregateOffer">
         <p class="text--brand"><b><span itemprop="price">{{formatNumber price}}</span> €</b> inkl. MwSt.</p>
     </div>

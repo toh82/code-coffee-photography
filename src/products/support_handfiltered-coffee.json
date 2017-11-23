@@ -1,9 +1,9 @@
 {
     "id": "support_handfiltered-coffee",
     "type": "support",
-    "tags": ["Support", "Kaffee"],
+    "tags": ["Kaffee"],
     "name": "Support: Handgefilterter Kaffee",
-    "description": "Ich liebe handgefilterten Kaffee. Super nice, wenn du mir einen ausgeben magst.",
+    "description": "Du Sponsorst mir einen handgefilterten Kaffee. Super nice!",
     "price": "400",
     "image": {
         "base": "",

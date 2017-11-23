@@ -4,6 +4,7 @@
     "tags": ["Bild"],
     "name": "Ein bisschen Unschuld",
     "description": "High Res Bild 'Ein bisschen Unschuld' als .jpg Datei",
+    "license": "CC2.0",
     "price": "2000",
     "image": {
         "base": "",
