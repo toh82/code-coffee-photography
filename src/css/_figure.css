@@ -18,6 +18,16 @@
     }
   }
 
+  &--break-right {
+    @media (--break-big) {
+      float: right;
+      width: 60%;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      margin-right: -4rem;
+    }
+  }
+
   &--break-both {
     @media (--break-big) {
       margin: 1rem -4rem;

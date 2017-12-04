@@ -346,6 +346,16 @@ pre {
         word-wrap: break-word;
     }
 
+    .quote {
+        border-left: 5px solid var(--color__primary--light);
+        margin-left: 0;
+        padding: 1.5rem;
+
+        cite {
+            display: inline-block;
+        }
+    }
+
     .article-meta {
         display: grid;
         align-items: center;
