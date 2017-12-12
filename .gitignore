@@ -2,6 +2,7 @@ node_modules
 
 web/assets/js
 web/assets/css
+web/assets/media
 web/*.html
 web/posts/*.html
 

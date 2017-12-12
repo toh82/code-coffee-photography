@@ -5,6 +5,14 @@
     <meta name="author" content="{{author}}">
     <title itemprop='name'>{{site.header.title_prefix}} - {{headline}} {{#if subline}}{{subline}}{{/if}}</title>
 
+    <meta property="og:title" content="{{headline}} {{subline}}" />
+    <meta property="og:url" content="{{getUrl relativePath}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:author" content="{{author}}">
+    <meta property="og:article:published_time" content="{{formatTime date "YYYY-MM-DD"}}">
+    {{#if previewImage}}
+    <meta property="og:image" content="{{getUrl 'assets/media/'}}{{previewImage}}" />
+    {{/if}}
     {{> analytics}}
   </head>
   <body class="ccp  ccp--article">

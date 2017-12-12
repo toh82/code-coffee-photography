@@ -1,11 +1,11 @@
 {
   "site": {
     "url": {
-      "base": "https://www.code-coffee-photography.blog/",
-      "static": "https://www.code-coffee-photography.blog/"
+      "base": "/",
+      "static": "/"
     },
     "google_analytics": {
-      "active": true,
+      "active": false,
       "id": "UA-61312162-3"
     },
     "header": {
