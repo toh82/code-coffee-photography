@@ -1,0 +1,5 @@
+language: php
+before_script:
+  - npm install -g gulp-cli
+  - npm install
+script: gulp build
