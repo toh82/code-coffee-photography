@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="{{lang}}">
+<html lang="{{lang}}" prefix="og: http://ogp.me/ns#">
   <head itemscope itemtype="http://schema.org/WebSite">
     {{> htmlheader}}
     <meta name="author" content="{{author}}">
     <title itemprop='name'>{{site.header.title_prefix}} - {{headline}} {{#if subline}}{{subline}}{{/if}}</title>
 
+    <meta property="og:title" content="{{headline}} {{subline}}" />
+    <meta property="og:url" content="{{getUrl relativePath}}" />
+    <meta property="og:type" content="article" />
+    {{#if previewImage}}
+    <meta property="og:image" content="{{getUrl 'assets/media/'}}{{previewImage}}" />
+    {{/if}}
+
+    {{#if facebook}}
+    <meta property="article:author" content="{{facebook}}">
+    {{/if}}
+    <meta property="article:published_time" content="{{formatTime date "YYYY-MM-DD"}}">  
+    
     {{> analytics}}
   </head>
   <body class="ccp  ccp--article">
@@ -17,13 +29,15 @@
             <img class="author-image" src="{{site.url.static}}assets/media/me.jpg" alt="Picture of Tobias Hartmann">
           </div>
           <div class="no-margin">
-            <p class="author">von <span itemprop="author" >{{author}}</span></p>
-            <time datetime="{{formatTime date "YYYY-MM-DD"}}">{{formatTime date "DD.MM.YYYY"}}</time>
-            <meta itemprop="datePublished" content="{{formatTime date "YYYY-MM-DD"}}"><br>
+            <p class="author">von: <span itemprop="author" >{{author}}</span>
+            {{#if twitter}}<a href="{{twitter}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>{{/if}}
+            {{#if facebook}}<a href="{{facebook}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>{{/if}}</p>
+            <p>am: <time datetime="{{formatTime date "YYYY-MM-DD"}}">{{formatTime date "DD.MM.YYYY"}}</time><br>
             {{> shareOnTwitter
               path=relativePath
               text=headline
-              author=twitter }}
+              author=twitter }}</p>
+            <meta itemprop="datePublished" content="{{formatTime date "YYYY-MM-DD"}}">
           </div>
         </div>
       </header>

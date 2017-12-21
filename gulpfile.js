@@ -1,12 +1,30 @@
 var gulp = require('gulp')
 
+gulp.task('products', function () {
+  var concat_json = require('gulp-concat-json')
+
+  return gulp.src('./src/products/*.json')
+    .pipe(concat_json('products.json'))
+    .pipe(gulp.dest('shop'))
+})
+
+gulp.task('images', function () {
+  var imagemin = require('gulp-imagemin')
+  gulp.src('src/media/**/*')
+    .pipe(imagemin())
+    .pipe(gulp.dest('web/assets/media'))
+})
+
 gulp.task('hbs', function () {
   var handlebars = require('gulp-compile-handlebars')
   var hbsBlog = require('hbs-blog')
   var pageConfig = require('./src/config.json')
 
   var localHelper = {
-    getUrl: require('./src/helper/getUrl')
+    getUrl: require('./src/helper/getUrl'),
+    shopList: require('./src/helper/shopList'),
+    formatNumber: require('./src/helper/formatNumber'),
+    list: require('./src/helper/list')
   }
 
   var options = {
@@ -27,12 +45,7 @@ gulp.task('hbs', function () {
 })
 
 gulp.task('js', function () {
-  var uglify = require('gulp-uglify')
-  var concat = require('gulp-concat')
-
-  return gulp.src('src/js/*.js')
-    .pipe(uglify())
-    .pipe(concat('script.js'))
+  return gulp.src('src/js/**/*.js')
     .pipe(gulp.dest('web/assets/js'))
 })
 
@@ -61,7 +74,8 @@ gulp.task('css', function () {
     .pipe(gulp.dest('web/assets/css'))
 })
 
-gulp.task('default', ['hbs', 'css', 'js'])
+gulp.task('default', ['hbs', 'css', 'js', 'products'])
+gulp.task('build', ['hbs', 'css', 'js', 'products', 'images'])
 gulp.task('watch', function () {
   return gulp.watch('./src/**/*', ['hbs', 'css', 'js'])
 })

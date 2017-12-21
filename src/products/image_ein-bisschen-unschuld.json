@@ -1,0 +1,13 @@
+{
+    "id": "image_ein-bisschen-unschuld",
+    "type": "digital",
+    "tags": ["Bild"],
+    "name": "Ein bisschen Unschuld",
+    "description": "High Res Bild 'Ein bisschen Unschuld' als .jpg Datei",
+    "license": "CC2.0",
+    "price": "2000",
+    "image": {
+        "base": "",
+        "thumb": "ein-bisschen-unschuld.jpg"
+    }
+}
