@@ -32,7 +32,7 @@
       <div class="container  article-list  article-list--sticky">
         <ul class="list  list--unstyled  list--sticky">
           {{#articleSticky blog.post.baseFolder blog.post.folder}}
-          <li class="list__item">{{> articlePreviewSticky}}</li>
+          <li class="list__item">{{> blog/article/previewSticky}}</li>
           {{/articleSticky}}
         </ul>
       </div>
@@ -42,7 +42,7 @@
         <h2>Bisherige Posts:</h2>
         <ul class="grid  grid--2">
           {{#articleList blog.post.baseFolder blog.post.folder false}}
-          <li class="grid__item">{{> articlePreviewSmall}}</li>
+          <li class="grid__item">{{> blog/article/previewSmall}}</li>
           {{/articleList}}
         </ul>
       </div>
