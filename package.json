@@ -19,7 +19,7 @@
     "gulp-sourcemaps": "^2.4.0",
     "gulp-uglify": "^2.0.1",
     "handlebars": "^4.0.6",
-    "hbs-blog": "^1.3.0",
+    "hbs-blog": "^1.4.0",
     "normalize-css": "^2.3.1",
     "postcss-import": "^9.1.0",
     "precss": "^1.4.0",

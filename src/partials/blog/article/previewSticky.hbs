@@ -1,5 +1,14 @@
 <article itemscope itemtype="http://schema.org/Article" data-tags="{{tags}}">
   <header class="article-head">
+    {{#if previewImage}}
+    <div class="article-head__preview-image  article-head__preview-image--sticky  article-head__preview-image--{{index}}"
+         aria-label="{{headline}} {{#if subline}}{{subline}}{{/if}}"></div>
+    <style>
+      .article-head__preview-image--{{index}} {
+        background-image: url("{{site.url.static}}assets/media/{{previewImage}}");
+      }
+    </style>
+    {{/if}}
     <h2 class="article-head__headline"><a href="{{link}}" itemprop="headline">{{headline}} {{#if subline}}{{subline}}{{/if}}</a></h2>
     <p class="article-head__info  text--inline"><small>{{lang}} . {{formatTime date "DD.MM.YYYY"}} . <span itemprop="author">{{author}}</span></small></p>
     <meta itemprop="datePublished" content="{{formatTime date "YYYY-MM-DD"}}">
