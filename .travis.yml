@@ -4,9 +4,8 @@ before_script:
 - npm install
 script: gulp build
 addons:
-  ssh_known_hosts: eltanin.uberspace.de  
+  ssh_known_hosts: eltanin.uberspace.de
 before_deploy:
-- ls -la
 - openssl aes-256-cbc -K $encrypted_bee3aff4e706_key -iv $encrypted_bee3aff4e706_iv -in deploy_rsa.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy_rsa
