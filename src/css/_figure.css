@@ -11,7 +11,7 @@
   &--break-left {
     @media (--break-big) {
       float: left;
-      width: 60%;
+      width: 50%;
       margin-right: 2rem;
       margin-bottom: 1rem;
       margin-left: -4rem;
@@ -21,7 +21,7 @@
   &--break-right {
     @media (--break-big) {
       float: right;
-      width: 60%;
+      width: 50%;
       margin-left: 2rem;
       margin-bottom: 1rem;
       margin-right: -4rem;
