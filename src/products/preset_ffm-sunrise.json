@@ -1,0 +1,12 @@
+{
+    "id": "preset_ffm-sunrise",
+    "type": "digital",
+    "tags": ["Preset"],
+    "name": "FFM-Sunrise",
+    "description": "FFM-Sunrise Adobe Lightroom Preset",
+    "price": "1000",
+    "image": {
+        "base": "",
+        "thumb": "ffm-sunrise.jpg"
+    }
+}

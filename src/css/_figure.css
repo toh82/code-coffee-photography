@@ -8,6 +8,20 @@
     text-align: center;
   }
 
+  &__link {
+    border-bottom-width: 0;
+  }
+
+  &--instagram {
+    @media (--break-big) {
+      float: left;
+      width: 40% !important;
+      margin-right: 2rem;
+      margin-bottom: 1rem;
+      margin-left: -4rem;
+    }    
+  }
+
   &--break-left {
     @media (--break-big) {
       float: left;
