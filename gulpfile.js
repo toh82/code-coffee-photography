@@ -10,8 +10,12 @@ gulp.task('products', function () {
 
 gulp.task('images', function () {
   var imagemin = require('gulp-imagemin')
+  var imageminMozjpeg = require('imagemin-mozjpeg')
+
   gulp.src('src/media/**/*')
-    .pipe(imagemin())
+    .pipe(imagemin([
+      imageminMozjpeg({quality: 90})
+    ]))
     .pipe(gulp.dest('web/assets/media'))
 })
 
