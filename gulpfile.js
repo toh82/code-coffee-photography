@@ -25,6 +25,7 @@ gulp.task('hbs', function () {
   var pageConfig = require('./src/config.json')
 
   var localHelper = {
+    getVersion: require('./src/helper/getVersion'),
     getUrl: require('./src/helper/getUrl'),
     shopList: require('./src/helper/shopList'),
     formatNumber: require('./src/helper/formatNumber'),
