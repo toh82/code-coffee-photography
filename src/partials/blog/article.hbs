@@ -30,8 +30,8 @@
           </div>
           <div class="no-margin">
             <p class="author">von: <span itemprop="author" >{{author}}</span>
-            {{#if twitter}}<a href="{{twitter}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>{{/if}}
-            {{#if facebook}}<a href="{{facebook}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>{{/if}}</p>
+            {{#if twitter}}<a href="https://twitter.com/{{twitter}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>{{/if}}
+            {{#if facebook}}<a href="https://www.facebook.com/{{facebook}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>{{/if}}</p>
             <p>am: <time datetime="{{formatTime date "YYYY-MM-DD"}}">{{formatTime date "DD.MM.YYYY"}}</time><br>
             {{> shareOnTwitter
               path=relativePath
