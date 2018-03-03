@@ -47,4 +47,10 @@
       margin: 1rem -4rem;
     }
   }
+
+  &--break-small {
+    @media (--break-big) {
+      margin: 1rem 6rem;
+    }
+  }  
 }

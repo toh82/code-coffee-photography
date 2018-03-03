@@ -26,17 +26,18 @@
         <h1 itemprop="headline">{{headline}} {{#if subline}}<span class="subline">{{subline}}</span>{{/if}}</h1>
         <div class="article-meta">
           <div>
-            <img class="author-image" src="{{site.url.static}}assets/media/me.jpg" alt="Picture of Tobias Hartmann">
+            <img class="author-image" src="{{site.url.static}}assets/media/{{authorimage}}" alt="Bild von {{author}}">
           </div>
           <div class="no-margin">
             <p class="author">von: <span itemprop="author" >{{author}}</span>
             {{#if twitter}}<a href="https://twitter.com/{{twitter}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>{{/if}}
-            {{#if facebook}}<a href="https://www.facebook.com/{{facebook}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>{{/if}}</p>
+            {{#if facebook}}<a href="https://www.facebook.com/{{facebook}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>{{/if}}
+            {{#if instagram}}<a href="https://www.instagram.com/{{instagram}}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>{{/if}}</p>
             <p>am: <time datetime="{{formatTime date "YYYY-MM-DD"}}">{{formatTime date "DD.MM.YYYY"}}</time><br>
             {{> shareOnTwitter
               path=relativePath
               text=headline
-              author=twitter }}</p>
+              author=author }}</p>
             <meta itemprop="datePublished" content="{{formatTime date "YYYY-MM-DD"}}">
           </div>
         </div>
