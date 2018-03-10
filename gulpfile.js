@@ -1,5 +1,12 @@
 var gulp = require('gulp')
 
+/**
+ * @param {string} parameter 
+ */
+var isParameter = function(parameter) {    
+    return typeof process.argv[3] !== 'undefined' && parameter.indexOf('--') !== -1
+}
+
 gulp.task('products', function () {
   var concat_json = require('gulp-concat-json')
 
@@ -20,9 +27,14 @@ gulp.task('images', function () {
 })
 
 gulp.task('hbs', function () {
+  let env = 'live'
+  if (isParameter(process.argv[3]) && process.argv[3].indexOf('local') !== -1) {
+    env = 'local'
+  }
+
   var handlebars = require('gulp-compile-handlebars')
   var hbsBlog = require('hbs-blog')
-  var pageConfig = require('./src/config.json')
+  var pageConfig = require('./src/config_' + env + '.json')
 
   var localHelper = {
     getVersion: require('./src/helper/getVersion'),

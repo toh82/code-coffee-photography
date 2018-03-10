@@ -1,10 +1,10 @@
 <article itemscope itemtype="http://schema.org/Article" data-tags="{{tags}}">
   <header class="article-head">
     {{#if previewImage}}
-    <div class="article-head__preview-image  article-head__preview-image--sticky  article-head__preview-image--{{index}}"
+    <div class="article-head__preview-image  article-head__preview-image--sticky  article-head__preview-image--sticky-{{index}}"
          aria-label="{{headline}} {{#if subline}}{{subline}}{{/if}}"></div>
     <style>
-      .article-head__preview-image--{{index}} {
+      .article-head__preview-image--sticky-{{index}} {
         background-image: url("{{site.url.static}}assets/media/{{previewImage}}");
       }
     </style>

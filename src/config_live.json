@@ -1,0 +1,23 @@
+{
+  "site": {
+    "url": {
+      "base": "https://www.code-coffee-photography.blog/",
+      "static": "https://www.code-coffee-photography.blog/"
+    },
+    "google_analytics": {
+      "active": true,
+      "id": "UA-61312162-3"
+    },
+    "header": {
+      "title_prefix": "code, coffee and photography",
+      "keywords": "webdevelopment, fotografie, photography, programmierung, javascript, kaffee, coffee"
+    }
+  },
+  "blog": {
+    "post": {
+      "baseFolder": "./src/",
+      "folder": "posts/"
+    }
+  },
+  "author": "Tobias Hartmann"
+}
