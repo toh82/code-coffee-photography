@@ -1,17 +1,17 @@
 var gulp = require('gulp')
 
 /**
- * @param {string} parameter 
+ * @param {string} parameter
  */
-var isParameter = function(parameter) {    
-    return typeof process.argv[3] !== 'undefined' && parameter.indexOf('--') !== -1
+var isParameter = function (parameter) {
+  return typeof process.argv[3] !== 'undefined' && parameter.indexOf('--') !== -1
 }
 
 gulp.task('products', function () {
-  var concat_json = require('gulp-concat-json')
+  var concatJson = require('gulp-concat-json')
 
   return gulp.src('./src/products/*.json')
-    .pipe(concat_json('products.json'))
+    .pipe(concatJson('products.json'))
     .pipe(gulp.dest('shop'))
 })
 

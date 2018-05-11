@@ -6,6 +6,5 @@ web/assets/media
 web/*.html
 web/posts/*.html
 
-shop/
-deploy_rsa
-deploy_rsa.pub
+shop
+deploy
