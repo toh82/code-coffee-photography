@@ -1,0 +1,12 @@
+{
+    "id": "preset_goldfade-green",
+    "type": "digital",
+    "tags": ["Preset"],
+    "name": "Goldfade-Green",
+    "description": "Goldfade-Green Adobe Lightroom Preset",
+    "price": "600",
+    "image": {
+        "base": "",
+        "thumb": "goldfadegreen_preset_1.jpg"
+    }
+}

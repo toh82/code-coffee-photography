@@ -1,0 +1,12 @@
+{
+    "id": "preset_lightsofffm",
+    "type": "digital",
+    "tags": ["Preset"],
+    "name": "lightsofffm",
+    "description": "lightsofffm Adobe Lightroom Preset",
+    "price": "1000",
+    "image": {
+        "base": "",
+        "thumb": "lightsofffm_preset_1.jpg"
+    }
+}

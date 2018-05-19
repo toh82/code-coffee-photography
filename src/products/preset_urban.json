@@ -1,0 +1,12 @@
+{
+    "id": "preset_urban",
+    "type": "digital",
+    "tags": ["Preset"],
+    "name": "Urban",
+    "description": "Urban Adobe Lightroom Preset",
+    "price": "600",
+    "image": {
+        "base": "",
+        "thumb": "urban_preset_1.jpg"
+    }
+}

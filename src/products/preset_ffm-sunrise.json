@@ -4,9 +4,9 @@
     "tags": ["Preset"],
     "name": "FFM-Sunrise",
     "description": "FFM-Sunrise Adobe Lightroom Preset",
-    "price": "1000",
+    "price": "800",
     "image": {
         "base": "",
-        "thumb": "ffm-sunrise.jpg"
+        "thumb": "sunriseffm_preset_1.jpg"
     }
 }
