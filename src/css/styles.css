@@ -158,6 +158,11 @@ img {
     }
 }
 
+.cc-link {
+    border: none;
+    padding: 0 .4em;
+}
+
 .text {
     &--inline {
         display: inline-block;
