@@ -7,14 +7,6 @@ var isParameter = function (parameter) {
   return typeof process.argv[3] !== 'undefined' && parameter.indexOf('--') !== -1
 }
 
-gulp.task('products', function () {
-  var concatJson = require('gulp-concat-json')
-
-  return gulp.src('./src/products/*.json')
-    .pipe(concatJson('products.json'))
-    .pipe(gulp.dest('shop'))
-})
-
 gulp.task('images', function () {
   var imagemin = require('gulp-imagemin')
   var imageminMozjpeg = require('imagemin-mozjpeg')
@@ -91,8 +83,8 @@ gulp.task('css', function () {
     .pipe(gulp.dest('web/assets/css'))
 })
 
-gulp.task('default', ['hbs', 'css', 'js', 'products'])
-gulp.task('build', ['hbs', 'css', 'js', 'products', 'images'])
+gulp.task('default', ['hbs', 'css', 'js'])
+gulp.task('build', ['hbs', 'css', 'js', 'images'])
 gulp.task('watch', function () {
   return gulp.watch('./src/**/*', ['hbs', 'css', 'js'])
 })
