@@ -8,3 +8,5 @@ web/posts/*.html
 
 shop
 deploy
+
+.vscode
